@@ -19,6 +19,7 @@
 module Passbook
   class PassesController < ApplicationController
     def get_pass
+      binding.pry
       pass = Passbook.pass_type_id_to_class(params[:pass_type_id]).find_by_serial_number params[:serial_number]
       return render(:json => {}, :status => 401) if pass.blank?
       pass.check_for_updates if pass.respond_to? :check_for_updates
