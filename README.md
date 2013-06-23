@@ -53,8 +53,11 @@ After that, let's create a pkpass model (ie. ticket).
 I would strongly advise specifying **model_name**, **pass_type_id** and **tead_id** at this points.
 
 ```
-   rails g passbook:pkpass [model_name] [pass_type_id] [team_id] [cert_path] [cert_password]
+   rails g passbook:pkpass pass.level3tv.text pass.level3tv.text 3KHE9NY754 data/_level3_sign_Certificates.p12 sr99d01%
 ```
+
+rails g passbook:pkpass [model_name] [pass_type_id] [team_id] [cert_path] [cert_password]
+
 This will generate a model, a migration, an initializer, a route and a sample pass (to data/templates/your_pass_type_id). Make sure to add your
 .p12 into the path now if you use the defaults. Also, if you didn't set the password for the cert in the above command, make sure you change the default to
 your password in config/initializers/passbook_#{model_name}.rb.
